@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bt {
+            position: absolute;
+            top: 2.6px;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            margin-left: 5px;
+            margin-right: 4px;
+            background-color: #1b1b1b;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, right 0.3s;
+        }
+
+        .vnutri {
+            position: absolute;
+            background-color: white;
+            width: 80px;
+            height: 40px;
+            right: 15px;
+            top: 20px;
+            border-radius: 50px;
+        }
+
+        .dark {
+            background-color: rgb(37, 37, 37);
+            color: white;
+        }
+
+        .dark .osnova {
+            background-color: #333;
+        }
+
+        .dark .slov {
+            color: white;
+        }
+
+        .dark .bt2 {
+            color: white;
+            background-color: #0c0c0c;
+        }
+
+        .moved {
+            right: 37px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #DCDCDC;
+            transition: background-color 0.3s, color 0.3s;
+            color: black;
+        }
+
+        .osnova {
+            font-size: 25px;
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu li {
+            display: inline;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        .burger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .osnova {
+            margin-top: 70px;
+            padding: 20px;
+            padding-top: 5px;
+            background-color: white;
+            font-size: 29px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            height: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background-color 0.3s
+        }
+
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 45px;
+                left: 0;
+                width: 100px;
+                text-align: left;
+                padding-bottom: 15px;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .bt {
+                top: 2.5px;
+                height: 35px;
+                width: 35px;
+            }
+
+            .moved {
+                right: 37px;
+            }
+
+            .vnutri {
+                top: 10px;
+            }
+
+            .osnova {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span class="vnutri">
+        <button class="bt" onclick="tema()"></button>
+    </span>
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="uslugi.html">Услуги</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+        <div class="burger">&#9776;</div>
+    </nav>
+    <div class="osnova">
+        <h2>О нас</h2>
+        <p><b>Сайт сделали: Артыкбаев Шахрух, Полосин Богдан</b></p>
+        <p><b>Группа: IT-223</b></p>
+        <p><b>Страна: Кыргызстан</b></p>
+        <p><b>Город: Токмок</b></p>
+        <p><b>Сайт был сделан: 2025.03.06</b></p>
+
+    </div>
+
+    <script>
+        document.querySelector('.burger').addEventListener('click', function () {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+        function tema() {
+            document.body.classList.toggle('dark');
+            document.querySelector('.bt').classList.toggle('moved');
+            document.querySelector('.bt').classList.toggle('dark');
+            document.querySelector('.slov').classList.toggle('dark');
+            document.querySelector('.osnova').classList.toggle('dark');
+
+        }
+    </script>
+</body>
+
+</html>

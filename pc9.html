@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bt {
+            position: absolute;
+            top: 2.6px;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            margin-left: 5px;
+            margin-right: 4px;
+            background-color: #1b1b1b;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, right 0.3s;
+        }
+
+        .vnutri {
+            position: absolute;
+            background-color: white;
+            width: 80px;
+            height: 40px;
+            right: 15px;
+            top: 20px;
+            border-radius: 50px;
+        }
+
+        .dark {
+            background-color: rgb(37, 37, 37);
+            color: white;
+        }
+
+        .dark .slov,
+        .dark .pc-specs,
+        .dark .price,
+        .dark .pc-info {
+            color: white;
+            background-color: #333;
+            background: #333;
+        }
+
+        .moved {
+            right: 37px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5;
+            transition: background-color 0.3s, color 0.3s;
+            color: black;
+        }
+
+        .slov {
+            font-size: 25px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu li {
+            display: inline;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        .burger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .image-gallery img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .pc-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .pc-specs {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 22px;
+            margin-top: 15px;
+            color: #d9534f;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-gallery img {
+                width: 300px;
+            }
+
+            .pc-info {
+                width: 90%;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 45px;
+                left: 0;
+                width: 100px;
+                text-align: left;
+                padding-bottom: 15px;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .bt {
+                top: 2.5px;
+                height: 35px;
+                width: 35px;
+            }
+
+            .moved {
+                right: 37px;
+            }
+
+            .vnutri {
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span class="vnutri">
+        <button class="bt" onclick="tema()"></button>
+    </span>
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="onas.html">О нас</a></li>
+            <li><a href="uslugi.html">Услуги</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+    <div class="container">
+        <div class="image-gallery">
+            <img src="https://optim.tildacdn.com/stor3033-6363-4137-b164-373334383035/-/format/webp/66053768.jpg"
+                alt="Фото 1">
+        </div>
+        <div class="pc-info">
+            <div class="image-caption"><b class="slov">Lenovo Legion T7</b></div>
+            <div class="pc-specs">
+                <p><b>Процессор:</b> AMD Ryzen Threadripper PRO 5995WX</p>
+                <p><b>Видеокарта:</b> NVIDIA GeForce RTX 5090 Ti</p>
+                <p><b>ОЗУ:</b> 256GB DDR5 ECC</p>
+                <p><b>Накопитель:</b> 8TB SSD NVMe + 10TB HDD</p>
+                <p><b>Охлаждение:</b> Кастомная жидкостная система</p>
+            </div>
+            <div class="price">Цена: 9999$</div>
+        </div>
+    </div>
+
+    <script>
+        function tema() {
+            document.body.classList.toggle('dark');
+            document.querySelector('.bt').classList.toggle('moved');
+            document.querySelector('.bt').classList.toggle('dark');
+            document.querySelector('.slov').classList.toggle('dark');
+            document.querySelector('.pc-specs').classList.toggle('dark');
+            document.querySelector('.pc-info').classList.toggle('dark');
+        }
+
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

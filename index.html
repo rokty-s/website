@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивное меню</title>
+    <style>
+.bt{
+    position: absolute;
+    top: 2.6px;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 4px;
+    background-color: #1b1b1b;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, right 0.3s;
+}
+.vnutri{
+    position: absolute;
+    background-color: white;
+    width: 80px;
+    height: 40px;
+    right: 15px;
+    top: 20px;
+    border-radius: 50px;
+}
+.dark {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+.dark .slov {
+    color: white;
+}
+.dark .bt2 {
+    color: white;
+    background-color: #0c0c0c;
+}
+.moved {
+    right: 37px;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #DCDCDC;
+            transition: background-color 0.3s, color 0.3s;
+            color: black;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 15px;
+            color: white;
+        }
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .menu li {
+            display: inline;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .menu a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+        .burger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .image-gallery img {
+            width: 350px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .image-caption {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 45px;
+                left: 0;
+                width: 100px;
+                text-align: left;
+                padding-bottom: 15px;
+            }
+            .menu.active {
+                display: flex;
+            }
+            .burger {
+                display: block;
+            }
+            .image-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-gallery img {
+            width: 230px;
+            }
+            .bt {
+                top: 2.5px;
+                height: 35px;
+                width: 35px;
+            }
+            .moved {
+                right: 37px;
+            }
+            .vnutri{
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <span class="vnutri">
+        <button class="bt" onclick="tema()"></button>
+    </span>
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="#">Главная</a></li>
+			<li><a href="onas.html">О нас</a></li>
+            <li><a href="uslugi.html">Услуги</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+        <div class="burger">&#9776;</div>
+    </nav>
+    <h1>Компьютерные блоки</h1>
+    <div class="image-gallery">
+        <a href="pc1.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor6164-3133-4336-b935-393430386332/-/format/webp/37340091.jpg" alt="Фото 1">
+            <div class="image-caption"><b class="slov">GANSOR-1301880</b></div>
+        </a>
+        <a href="pc2.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor3437-6166-4335-a338-663536323935/-/format/webp/77097236.jpg" alt="Фото 2">
+            <div class="image-caption"><b class="slov">TopComp PG 71729704</b></div>
+        </a>
+        <a href="pc3.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor6130-3761-4166-b631-373439353933/-/format/webp/56233252.jpg" alt="Фото 3">
+            <div class="image-caption"><b class="slov">Robotcomp</b></div>
+        </a>
+        <a href="pc4.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor3132-6436-4439-a561-613639333339/-/format/webp/40276419.jpg" alt="Фото 4">
+            <div class="image-caption"><b class="slov">Hard Comp Intel Core i5</b></div>
+        </a>
+        <a href="pc5.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor3937-3334-4334-a531-666666323536/-/format/webp/16433422.jpg" alt="Фото 5">
+            <div class="image-caption"><b class="slov">Gamer — 1753</b></div>
+        </a>
+        <a href="pc6.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor3532-3937-4263-b061-313763383034/-/format/webp/76245523.jpg" alt="Фото 6">
+            <div class="image-caption"><b class="slov">Firestrike Intel Core i9</b></div>
+        </a>
+        <a href="pc7.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor6532-6336-4936-b734-376262383539/-/format/webp/65040927.jpg" alt="Фото 7">
+            <div class="image-caption"><b class="slov">Robotcomp Зевс 3.0 V3</b></div>
+        </a>
+        <a href="pc8.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor6165-6435-4564-b236-313866333130/-/format/webp/33961984.jpg" alt="Фото 8">
+            <div class="image-caption"><b class="slov">GIGABYTE Aorus</b></div>
+        </a>
+        <a href="pc9.html" style="text-decoration: none;">
+            <img src="https://optim.tildacdn.com/stor3033-6363-4137-b164-373334383035/-/format/webp/66053768.jpg" alt="Фото 9">
+            <div class="image-caption"><b class="slov">Lenovo Legion T7</b></div>
+        </a>
+    </div>
+    
+    <script>
+        document.querySelector('.burger').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+        function tema(){
+    document.body.classList.toggle('dark');
+    document.querySelector('.bt').classList.toggle('moved');
+    document.querySelector('.bt').classList.toggle('dark');
+    document.querySelectorAll('.slov').classList.toggle('dark');
+    
+}
+    </script>
+</body>
+</html>
